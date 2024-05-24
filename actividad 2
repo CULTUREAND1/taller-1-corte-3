@@ -1,0 +1,57 @@
+#include <stdio.h>
+
+int main() {
+    int arr1[9][9], i, j, k, startValue, searchValue, found = 0;
+
+    printf("-------------------------------------------------------\n");
+    printf("\n\nLlenar una matriz 9x9 con números secuenciales:\n");
+    printf("-------------------------------------------------------\n");
+
+    // Solicitar al usuario que ingrese el número inicial para llenar la matriz
+    printf("Ingrese el número inicial para llenar la matriz: ");
+    scanf("%d", &startValue);
+
+    k = startValue;
+
+    // Llenar la matriz con números secuenciales a partir de startValue
+    for(i = 0; i < 9; i++) {
+        for (j = 0; j < 9; j++) {
+            arr1[i][j] = k;
+            k++;
+        }
+    }
+
+    printf("----------------------------------\n");
+    printf("Los elementos son los siguientes:\n");
+    printf("----------------------------------\n");
+
+    for(i = 0; i < 9; i++) {
+        for (j = 0; j < 9; j++) {
+            printf("arr1[%d][%d] = %d\n", i, j, arr1[i][j]);
+        }
+    }
+
+    // Solicitar al usuario que ingrese un número para buscar en la matriz
+    printf("Ingrese un número para buscar en la matriz: ");
+    scanf("%d", &searchValue);
+
+    // Buscar el número en la matriz
+    for(i = 0; i < 9; i++) {
+        for (j = 0; j < 9; j++) {
+            if (arr1[i][j] == searchValue) {
+                found = 1;
+                printf("Valor encontrado en la posición arr1[%d][%d]\n", i, j);
+                break;
+            }
+        }
+        if (found) {
+            break;
+        }
+    }
+
+    if (!found) {
+        printf("No encontrado\n");
+    }
+
+    return 0;
+}
